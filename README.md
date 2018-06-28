@@ -134,5 +134,3 @@ hadd outputs and plot:
 
 code: /afs/cern.ch/user/s/senka/public/forYurii/deal_with_impacts.py
 
-
-
