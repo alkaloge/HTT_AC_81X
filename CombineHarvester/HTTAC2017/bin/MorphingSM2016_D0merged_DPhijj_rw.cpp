@@ -87,9 +87,9 @@ int main(int argc, char** argv) {
     config.add_options()
     ("mass,m", po::value<string>(&mass)->default_value(mass))
     
-    ("input_folder_em", po::value<string>(&input_folder_em)->default_value("USCMS"))
+//    ("input_folder_em", po::value<string>(&input_folder_em)->default_value("USCMS"))
     ("input_folder_et", po::value<string>(&input_folder_et)->default_value("USCMS"))
-    ("input_folder_mt", po::value<string>(&input_folder_mt)->default_value("USCMS"))
+//    ("input_folder_mt", po::value<string>(&input_folder_mt)->default_value("USCMS"))
     ("input_folder_tt", po::value<string>(&input_folder_tt)->default_value("USCMS"))
     ("input_folder_mm", po::value<string>(&input_folder_mm)->default_value("USCMS"))
     ("input_folder_ttbar", po::value<string>(&input_folder_ttbar)->default_value("USCMS"))
@@ -130,11 +130,11 @@ int main(int argc, char** argv) {
     
     
     
-    VString chns = {"mt","et","tt","em"};
+//    VString chns = {"mt","et","tt","em"};
 //    VString chns = {"mt","et","tt"};
 //    VString chns = {"mt","tt"};
 //    VString chns = {"et","tt"};
-//    VString chns = {"et","mt"};
+    VString chns = {"et","mt"};
 //    VString chns = {"et"};
 //    VString chns = {"mt","tt"};
 //    VString chns = {"tt"};
@@ -167,10 +167,10 @@ int main(int argc, char** argv) {
     cats["et"] = {
         {1, "et_0jet"},
         {2, "et_boosted"},
-        {3, "et_vbf_Pito1p6m_ggH"},
-        {4, "et_vbf_1p6to0_ggH"},
-        {5, "et_vbf_0to1p6p_ggH"},
-        {6, "et_vbf_1p6toPi_ggH"}
+        {3, "et_vbf_dPhia_ggH"},
+        {4, "et_vbf_dPhib_ggH"},
+        {5, "et_vbf_dPhic_ggH"},
+        {6, "et_vbf_dPhid_ggH"}
 
         
     };
@@ -178,20 +178,20 @@ int main(int argc, char** argv) {
     cats["mt"] = {
         {1, "mt_0jet"},
         {2, "mt_boosted"},
-        {3, "mt_vbf_Pito1p6m_ggH"},
-        {4, "mt_vbf_1p6to0_ggH"},
-        {5, "mt_vbf_0to1p6p_ggH"},
-        {6, "mt_vbf_1p6toPi_ggH"}
+        {3, "mt_vbf_dPhia_ggH"},
+        {4, "mt_vbf_dPhib_ggH"},
+        {5, "mt_vbf_dPhic_ggH"},
+        {6, "mt_vbf_dPhid_ggH"}
         
     };
     
     cats["em"] = {
         {1, "em_0jet"},
         {2, "em_boosted"},
-        {3, "em_vbf_Pito1p6m_ggH"},
-        {4, "em_vbf_1p6to0_ggH"},
-        {5, "em_vbf_0to1p6p_ggH"},
-        {6, "em_vbf_1p6toPi_ggH"}
+        {3, "em_vbf_dPhia_ggH"},
+        {4, "em_vbf_dPhib_ggH"},
+        {5, "em_vbf_dPhic_ggH"},
+        {6, "em_vbf_dPhid_ggH"}
 
 };
     
@@ -199,10 +199,10 @@ int main(int argc, char** argv) {
     cats["tt"] = {        
         {1, "tt_0jet"},
         {2, "tt_boosted"},
-        {3, "tt_vbf_Pito1p6m_ggH"},
-        {4, "tt_vbf_1p6to0_ggH"},
-        {5, "tt_vbf_0to1p6p_ggH"},
-        {6, "tt_vbf_1p6toPi_ggH"}
+        {3, "tt_vbf_melaDPhijj_DPhijj_0toPiOver4"},
+        {4, "tt_vbf_melaDPhijj_DPhijj_piOver4toPiOver2"},
+        {5, "tt_vbf_melaDPhijj_DPhijj_piOver2to3PiOver4"},
+        {6, "tt_vbf_melaDPhijj_DPhijj_3PiOver4toPi"}
     };
     
     
@@ -232,10 +232,10 @@ int main(int argc, char** argv) {
                 
                 queue.push_back(make_pair(binid,chn+"_wjets_0jet_cr"));
                 queue.push_back(make_pair(binid+1,chn+"_wjets_boosted_cr"));
-//                queue.push_back(make_pair(binid+2,chn+"_wjets_vbf_cr"));
+   //             queue.push_back(make_pair(binid+2,chn+"_wjets_vbf_cr"));
                 queue.push_back(make_pair(binid+3,chn+"_antiiso_0jet_cr"));
                 queue.push_back(make_pair(binid+4,chn+"_antiiso_boosted_cr"));
-//                queue.push_back(make_pair(binid+5,chn+"_antiiso_vbf_cr"));
+    //            queue.push_back(make_pair(binid+5,chn+"_antiiso_vbf_cr"));
                 
                 cats[chn].insert(cats[chn].end(),queue.begin(),queue.end());
             }
@@ -247,10 +247,10 @@ int main(int argc, char** argv) {
                 
                 queue.push_back(make_pair(binid,chn+"_0jet_qcd_cr"));
                 queue.push_back(make_pair(binid+1,chn+"_boosted_qcd_cr"));
-                queue.push_back(make_pair(binid+2,chn+"_vbf_Pito1p6m_ggH_qcd_cr"));
-                queue.push_back(make_pair(binid+3,chn+"_vbf_1p6to0_ggH_qcd_cr"));
-                queue.push_back(make_pair(binid+4,chn+"_vbf_0to1p6p_ggH_qcd_cr"));
-                queue.push_back(make_pair(binid+5,chn+"_vbf_1p6toPi_ggH_qcd_cr"));
+                queue.push_back(make_pair(binid+2,chn+"_vbf_melaDPhijj_DPhijj_0toPiOver4_qcd_cr"));
+                queue.push_back(make_pair(binid+3,chn+"_vbf_melaDPhijj_DPhijj_piOver4toPiOver2_qcd_cr"));
+                queue.push_back(make_pair(binid+4,chn+"_vbf_melaDPhijj_DPhijj_piOver2to3PiOver4_qcd_cr"));
+                queue.push_back(make_pair(binid+5,chn+"_vbf_melaDPhijj_DPhijj_3PiOver4toPi_qcd_cr"));
 
                 
                 cats[chn].insert(cats[chn].end(),queue.begin(),queue.end());
@@ -266,32 +266,47 @@ int main(int argc, char** argv) {
     //vector<string> sig_procs = {"ggH_htt","WH_htt","ZH_htt","qqH_htt", "qqH_htt_0PH"};
     //    vector<string> sig_procs = {"ggH_htt","WH_htt","ZH_htt","qqH_htt","qqH_htt_0PH","ZH_htt_0PH","WH_htt_0PH"};
     //    vector<string> sig_procs = {"ggH_htt","WH_htt","ZH_htt","qqH_htt","qqH_htt_0PH","ZH_htt_0PH","WH_htt_0PH","qqH_htt_0PHf05ph0","ZH_htt_0PHf05ph0","WH_htt_0PHf05ph0"};
-    vector<string> sig_procs = {"GGH2Jets_sm_M","reweighted_WH_htt_0PM","reweighted_ZH_htt_0PM","reweighted_qqH_htt_0PM","reweighted_qqH_htt_0L1","reweighted_ZH_htt_0L1","reweighted_WH_htt_0L1","reweighted_qqH_htt_0L1f05ph0","reweighted_ZH_htt_0L1f05ph0","reweighted_WH_htt_0L1f05ph0"};
+ //vector<string> sig_procs = {"ggH_htt","reweighted_WH_htt_0PM","reweighted_ZH_htt_0PM","reweighted_qqH_htt_0PM","reweighted_qqH_htt_0M","reweighted_ZH_htt_0M","reweighted_WH_htt_0M","reweighted_qqH_htt_0Mf05ph0","reweighted_ZH_htt_0Mf05ph0","reweighted_WH_htt_0Mf05ph0"};
+    vector<string> sig_procs = {"gGH2Jets_sm_M","gGH2Jets_pseudoscalar_M","reweighted_WH_htt_0PM","reweighted_ZH_htt_0PM","reweighted_qqH_htt_0PM","reweighted_qqH_htt_0M","reweighted_ZH_htt_0M","reweighted_WH_htt_0M","reweighted_qqH_htt_0Mf05ph0","reweighted_ZH_htt_0Mf05ph0","reweighted_WH_htt_0Mf05ph0"};
+    //vector<string> sig_procsPow = {"ggH_htt","reweighted_WH_htt_0PM","reweighted_ZH_htt_0PM","reweighted_qqH_htt_0PM","reweighted_qqH_htt_0M","reweighted_ZH_htt_0M","reweighted_WH_htt_0M","reweighted_qqH_htt_0Mf05ph0","reweighted_ZH_htt_0Mf05ph0","reweighted_WH_htt_0Mf05ph0"};
+    
+    //vector<string> sig_procs = {"GGH2Jets_sm_M"};
     // just to trick the code to create ttbar dir, since no 0L1 signal in input root files!
     //    vector<string> sig_procs_ttbar = {"ggH_htt","WH_htt","ZH_htt","qqH_htt"};
-    vector<string> sig_procs_ttbar = {"GGH2Jets_sm_M","reweighted_WH_htt_0PM","reweighted_ZH_htt_0PM","reweighted_qqH_htt_0PM"};
-//    vector<string> masses = {"110","120","125","130","140"};
+    //orign vector<string> sig_procs_ttbar = {"GGH2Jets_sm_M","reweighted_WH_htt_0PM","reweighted_ZH_htt_0PM","reweighted_qqH_htt_0PM"};
+    //vector<string> sig_procs_ttbar = {"GGH2Jets_sm_M"};
+    vector<string> sig_procs_ttbar = {"gGH2Jets_sm_M","gGH2Jets_pseudoscalar_M","reweighted_WH_htt_0PM","reweighted_ZH_htt_0PM","reweighted_qqH_htt_0PM"};
+    //    vector<string> masses = {"110","120","125","130","140"};
 //    vector<string> masses = {"120","125","130"};
     vector<string> masses = {"125"};
 	    
     using ch::syst::bin_id;
-    
     //! [part2]
     for (auto chn : chns) {
+
+
+	    auto it = chn;
+
+	std::cout << "check this  ============================-------------------->>>>>>>> "<<cats[it][0].first<<"   "<<cats[it][0].second<<"   "<<cats["et"][0].first<<"  "<<cats["et"][0].second<<"\n";
+	//std::advance(it, rand() % m.size());
+
+
+
         cb.AddObservations({"*"}, {"htt"}, {"13TeV"}, {chn}, cats[chn]);
         cb.AddProcesses(   {"*"}, {"htt"}, {"13TeV"}, {chn}, bkg_procs[chn], cats[chn], false);
 	// don't use signal for ttbar CR because no BSM model in those inout files, and this CR is signal free 
-	/*
-        if(chn != std::string("ttbar")){
-	  cb.AddProcesses(masses,   {"htt"}, {"13TeV"}, {chn}, sig_procs, cats[chn], true);
-	}
-	*/
-	cb.AddProcesses(masses,   {"htt"}, {"13TeV"}, {chn}, sig_procs, cats[chn], true);
-    
+//if (chn<3	cb.AddProcesses(masses,   {"htt"}, {"13TeV"}, {chn}, sig_procsPow, cats[chn], true);
+
+//if (ch::contains({"0jet", "boost"}, chn)){
+//	cout<<" FPUND A MATCH =========================================================== "<<endl;
+		cb.AddProcesses(masses,   {"htt"}, {"13TeV"}, {chn}, sig_procs, cats[chn], true);
+//	}
+  //  else
+//		cb.AddProcesses(masses,   {"htt"}, {"13TeV"}, {chn}, sig_procsPow, cats[chn], true);
+
 
         //Needed to add ewkz and W as these are not not available/Negative in qcd cR
     }
-    
 
 //    //Add EWKZ and W manually !!!!!!
 //    
@@ -299,14 +314,15 @@ int main(int argc, char** argv) {
 //    cb.AddProcesses(   {"*"}, {"htt"}, {"13TeV"}, {"et"}, {"EWKZ"}, {{1, "et_0jet"},{2, "et_boosted"},{3, "et_vbf"}}, false);
 
     if (control_region > 0){
+      //cb.AddProcesses(   {"*"}, {"htt"}, {"13TeV"}, {"et"}, {"W"}, 
       cb.AddProcesses(   {"*"}, {"htt"}, {"13TeV"}, {"et"}, {"W"}, 
 			 {
 			   {1, "et_0jet"},
 			     {2, "et_boosted"},
-			       {3, "et_vbf_Pito1p6m_ggH"},
-				 {4, "et_vbf_1p6to0_ggH"},
-				   {5, "et_vbf_0to1p6p_ggH"},
-				     {6, "et_vbf_1p6toPi_ggH"},		       
+			       {3, "et_vbf_dPhia_ggH"},
+				 {4, "et_vbf_dPhib_ggH"},
+				   {5, "et_vbf_dPhic_ggH"},
+				     {6, "et_vbf_dPhid_ggH"},		       
 					       {20, "et_wjets_0jet_cr"},
 						 {21, "et_wjets_boosted_cr"},
 						   {23, "et_antiiso_0jet_cr"},
@@ -317,10 +333,10 @@ int main(int argc, char** argv) {
 			 {
 			   {1, "mt_0jet"},
 			     {2, "mt_boosted"},	   
-			       {3, "mt_vbf_Pito1p6m_ggH"},	    
-				 {4, "mt_vbf_1p6to0_ggH"},
-				   {5, "mt_vbf_0to1p6p_ggH"},
-				     {6, "mt_vbf_1p6toPi_ggH"},
+			       {3, "mt_vbf_dPhia_ggH"},	    
+				 {4, "mt_vbf_dPhib_ggH"},
+				   {5, "mt_vbf_dPhic_ggH"},
+				     {6, "mt_vbf_dPhid_ggH"},
 					       {20, "mt_wjets_0jet_cr"},
 						 {21, "mt_wjets_boosted_cr"},
 						   {23, "mt_antiiso_0jet_cr"},
@@ -390,10 +406,9 @@ int main(int argc, char** argv) {
     
     
     
-    
     //Now delete processes with 0 yield
     cb.FilterProcs([&](ch::Process *p) {
-        bool null_yield = !(p->rate() > 0. || BinIsControlRegion(p));
+        bool null_yield = !(p->rate() > 0. || BinIsControlRegion(p)) ;
         if (null_yield){
             std::cout << "[Null yield] Removing process with null yield: \n ";
             std::cout << ch::Process::PrintHeader << *p << "\n";
@@ -404,8 +419,6 @@ int main(int argc, char** argv) {
         }
         return null_yield;
     });
-    
-    
     
     
     
@@ -423,6 +436,7 @@ int main(int argc, char** argv) {
     
     
     
+    /*
     //! [part8]
     auto bbb = ch::BinByBinFactory()
     .SetAddThreshold(0.05)
@@ -430,7 +444,6 @@ int main(int argc, char** argv) {
     .SetFixNorm(false);
     bbb.MergeBinErrors(cb.cp().backgrounds());
     bbb.AddBinByBin(cb.cp().backgrounds(), cb);
-    
     
     
     // And now do bbb for the control region with a slightly different config:
@@ -453,7 +466,8 @@ int main(int argc, char** argv) {
     // which is commonly used in the htt analyses
     ch::SetStandardBinNames(cb);
     //! [part8]
-    
+    */
+
     //! [part9]
     // First we generate a set of bin names:
     //    set<string> bins = cb.bin_set();

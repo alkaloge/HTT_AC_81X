@@ -7,6 +7,12 @@
 <bin file="MorphingSM2016_D0merged_DCP_fL1Zg_rw.cpp" name="MorphingSM2016_D0merged_DCP_fL1Zg_rw"></bin>
 <bin file="MorphingSM2016_D0merged_DCP_fa2_rw.cpp" name="MorphingSM2016_D0merged_DCP_fa2_rw"></bin>
 <bin file="MorphingSM2016_dPhi.cpp" name="MorphingSM2017_dPhi"></bin>
+<bin file="MorphingSM2016_D0merged_DPhijj_rw.cpp" name="MorphingSM2016_DPhijj_rw"></bin>
+
+<bin file="MorphingSM2016_D0merged_DPhijj_rw_2.cpp" name="MorphingSM2016_DPhijj_rw2"></bin>
+
+<bin file="MorphingSM2016_D0merged_MelaDPhijj_rw.cpp" name="MorphingSM2016_MelaDPhijj_rw"></bin>
+
 <bin file="SBWeighted_HTT.cpp" name="SBWeighted_HTT"></bin>
 <use name="root"/>
 <use name="rootmath"/>
